@@ -48,65 +48,69 @@ var divideButton = document.querySelector('#divide');
 var multiplyButton = document.querySelector('#multiply');
 
 oneButton.addEventListener('click', e => {
-    displayText.textContent += '1';
+    bottomText.textContent += '1';
 });
 twoButton.addEventListener('click', e => {
-    displayText.textContent += '2';
+    bottomText.textContent += '2';
 });
 threeButton.addEventListener('click', e => {
-    displayText.textContent += '3';
+    bottomText.textContent += '3';
 });
 fourButton.addEventListener('click', e => {
-    displayText.textContent += '4';
+    bottomText.textContent += '4';
 });
 fiveButton.addEventListener('click', e => {
-    displayText.textContent += '5';
+    bottomText.textContent += '5';
 });
 sixButton.addEventListener('click', e => {
-    displayText.textContent += '6';
+    bottomText.textContent += '6';
 });
 sevenButton.addEventListener('click', e => {
-    displayText.textContent += '7';
+    bottomText.textContent += '7';
 });
 eightButton.addEventListener('click', e => {
-    displayText.textContent += '8';
+    bottomText.textContent += '8';
 });
 nineButton.addEventListener('click', e => {
-    displayText.textContent += '9';
+    bottomText.textContent += '9';
 });
 zeroButton.addEventListener('click', e => {
-    displayText.textContent += '0';
+    bottomText.textContent += '0';
 });
 decimalButton.addEventListener('click', e => {
-    displayText.textContent += '.';
+    bottomText.textContent += '.';
 });
 clearButton.addEventListener('click', e => {
-    displayText.textContent = '';
+    bottomText.textContent = '';
 });
 backspaceButton.addEventListener('click', e => {
-   displayText.textContent.slice(0,-1);
+   bottomText.textContent.slice(0,-1);
 });
 plusButton.addEventListener('click', e => {
     if(a){
-        b = Number(displayText.textContent);
+        b = Number(bottomText.textContent);
         // console.log('b = ' + b);
-        displayText.textContent = add(a,b);
+        upperText.textContent = add(a,b) + '+';
         a = add(a,b);
+        bottomText.textContent = '';
         // console.log('a = ' + a);
     }else{
-        a = Number(displayText.textContent);
+        a = Number(bottomText.textContent);
         // console.log('a = ' + a);
-        displayText.textContent = a + '+';
+        upperText.textContent = a + '+';
+        bottomText.textContent = '';
     }
 });
 
 
 var displayNumbers = document.querySelector('#display').textContent
 
-// var displayTextInput  
+// var bottomTextInput  
 
-var displayText = document.querySelector('#display');
-// displayText.textContent = 
+var bottomText = document.querySelector('#bottom');
+
+var upperText = document.querySelector('#upper');
+// bottomText.textContent = 
 
 // var displayValue = function (number){
     
