@@ -42,6 +42,7 @@ var zeroButton = document.querySelector('#zero');
 var decimalButton = document.querySelector('#decimal');
 var clearButton = document.querySelector('#clear');
 var backspaceButton = document.querySelector('#backspace');
+var equalsButton = document.querySelector('#equals');
 var plusButton = document.querySelector('#plus');
 var minusButton = document.querySelector('#minus');
 var divideButton = document.querySelector('#divide');
@@ -82,26 +83,124 @@ decimalButton.addEventListener('click', e => {
 });
 clearButton.addEventListener('click', e => {
     bottomText.textContent = '';
+    upperText.textContent = '';
+    a = '';
+    b = '';
 });
 backspaceButton.addEventListener('click', e => {
    bottomText.textContent.slice(0,-1);
 });
+
 plusButton.addEventListener('click', e => {
     if(a){
         b = Number(bottomText.textContent);
         // console.log('b = ' + b);
-        upperText.textContent = add(a,b) + '+';
+        upperText.textContent = add(a,b) + ' +';
         a = add(a,b);
         bottomText.textContent = '';
         // console.log('a = ' + a);
     }else{
         a = Number(bottomText.textContent);
         // console.log('a = ' + a);
-        upperText.textContent = a + '+';
+        upperText.textContent = a + ' +';
         bottomText.textContent = '';
     }
 });
 
+minusButton.addEventListener('click', e => {
+    if(a || a == 0 & a != ''){
+        b = Number(bottomText.textContent);
+        // console.log('b = ' + b);
+        upperText.textContent = subtract(a,b) + ' -';
+        a = subtract(a,b);
+        bottomText.textContent = '';
+        // console.log('a = ' + a);
+    }else{
+        a = Number(bottomText.textContent);
+        // console.log('a = ' + a);
+        upperText.textContent = a + ' -';
+        bottomText.textContent = '';
+    }
+});
+
+multiplyButton.addEventListener('click', e => {
+    if(a){
+        b = Number(bottomText.textContent);
+        // console.log('b = ' + b);
+        upperText.textContent = multiply(a,b) + ' *';
+        a = multiply(a,b);
+        bottomText.textContent = '';
+        // console.log('a = ' + a);
+    }else{
+        a = Number(bottomText.textContent);
+        // console.log('a = ' + a);
+        upperText.textContent = a + ' *';
+        bottomText.textContent = '';
+    }
+});
+
+divideButton.addEventListener('click', e => {
+    if(a){
+        b = Number(bottomText.textContent);
+
+        if (b != 0){
+        // console.log('b = ' + b);
+        upperText.textContent = divide(a,b) + ' ÷';
+        a = divide(a,b);
+        bottomText.textContent = '';
+        // console.log('a = ' + a);
+        } else {
+            alert('Are you trying to create a black hole or something?');
+            bottomText.textContent = '';
+            b = '';
+        }
+    }else{
+        a = Number(bottomText.textContent);
+        // console.log('a = ' + a);
+        upperText.textContent = a + ' ÷';
+        bottomText.textContent = '';
+    }
+});
+
+equalsButton.addEventListener('click', e =>{
+    if(upperText.textContent == a + ' +'){
+        // console.log('ASDASD')
+        b = Number(bottomText.textContent);
+        bottomText.textContent = add(a,b);
+        upperText.textContent = '';
+        a = '';
+        b = '';
+    } else if(upperText.textContent == a + ' -'){
+        // console.log('ASDASD')
+        b = Number(bottomText.textContent);
+        bottomText.textContent = subtract(a,b);
+        upperText.textContent = '';
+        a = '';
+        b = '';
+    } else if(upperText.textContent == a + ' *'){
+        // console.log('ASDASD')
+        b = Number(bottomText.textContent);
+        bottomText.textContent = multiply(a,b);
+        upperText.textContent = '';
+        a = '';
+        b = '';
+    } else if(upperText.textContent == a + ' ÷'){
+        // console.log('ASDASD')
+        b = Number(bottomText.textContent);
+
+        if(b != 0){
+        bottomText.textContent = divide(a,b);
+        upperText.textContent = '';
+        a = '';
+        b = '';
+        }
+        else {
+            alert('Are you trying to create a black hole or something?');
+            bottomText.textContent = '';
+            b = '';
+        }
+    } 
+});
 
 var displayNumbers = document.querySelector('#display').textContent
 
