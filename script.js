@@ -79,13 +79,20 @@ zeroButton.addEventListener('click', e => {
     bottomText.textContent += '0';
 });
 decimalButton.addEventListener('click', e => {
-    bottomText.textContent += '.';
+        if(bottomText.textContent == ''){
+            bottomText.textContent += '0.';
+            decimalButton.disabled = true;
+        } else {
+        bottomText.textContent += '.';
+        decimalButton.disabled = true;
+        }
 });
 clearButton.addEventListener('click', e => {
     bottomText.textContent = '';
     upperText.textContent = '';
     a = '';
     b = '';
+    decimalButton.disabled = false;
 });
 backspaceButton.addEventListener('click', e => {
    bottomText.textContent.slice(0,-1);
@@ -99,11 +106,13 @@ plusButton.addEventListener('click', e => {
         a = add(a,b);
         bottomText.textContent = '';
         // console.log('a = ' + a);
+        decimalButton.disabled = false;
     }else{
         a = Number(bottomText.textContent);
         // console.log('a = ' + a);
         upperText.textContent = a + ' +';
         bottomText.textContent = '';
+        decimalButton.disabled = false;
     }
 });
 
@@ -115,11 +124,13 @@ minusButton.addEventListener('click', e => {
         a = subtract(a,b);
         bottomText.textContent = '';
         // console.log('a = ' + a);
+        decimalButton.disabled = false;
     }else{
         a = Number(bottomText.textContent);
         // console.log('a = ' + a);
         upperText.textContent = a + ' -';
         bottomText.textContent = '';
+        decimalButton.disabled = false;
     }
 });
 
@@ -131,11 +142,13 @@ multiplyButton.addEventListener('click', e => {
         a = multiply(a,b);
         bottomText.textContent = '';
         // console.log('a = ' + a);
+        decimalButton.disabled = false;
     }else{
         a = Number(bottomText.textContent);
         // console.log('a = ' + a);
         upperText.textContent = a + ' *';
         bottomText.textContent = '';
+        decimalButton.disabled = false;
     }
 });
 
@@ -149,6 +162,7 @@ divideButton.addEventListener('click', e => {
         a = divide(a,b);
         bottomText.textContent = '';
         // console.log('a = ' + a);
+        decimalButton.disabled = false;
         } else {
             alert('Are you trying to create a black hole or something?');
             bottomText.textContent = '';
@@ -159,6 +173,7 @@ divideButton.addEventListener('click', e => {
         // console.log('a = ' + a);
         upperText.textContent = a + ' ÷';
         bottomText.textContent = '';
+        decimalButton.disabled = false;
     }
 });
 
@@ -170,6 +185,7 @@ equalsButton.addEventListener('click', e =>{
         upperText.textContent = '';
         a = '';
         b = '';
+        decimalButton.disabled = false;
     } else if(upperText.textContent == a + ' -'){
         // console.log('ASDASD')
         b = Number(bottomText.textContent);
@@ -177,6 +193,7 @@ equalsButton.addEventListener('click', e =>{
         upperText.textContent = '';
         a = '';
         b = '';
+        decimalButton.disabled = false;
     } else if(upperText.textContent == a + ' *'){
         // console.log('ASDASD')
         b = Number(bottomText.textContent);
@@ -184,6 +201,7 @@ equalsButton.addEventListener('click', e =>{
         upperText.textContent = '';
         a = '';
         b = '';
+        decimalButton.disabled = false;
     } else if(upperText.textContent == a + ' ÷'){
         // console.log('ASDASD')
         b = Number(bottomText.textContent);
@@ -193,6 +211,7 @@ equalsButton.addEventListener('click', e =>{
         upperText.textContent = '';
         a = '';
         b = '';
+        decimalButton.disabled = false;
         }
         else {
             alert('Are you trying to create a black hole or something?');
