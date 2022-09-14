@@ -79,12 +79,14 @@ zeroButton.addEventListener('click', e => {
     bottomText.textContent += '0';
 });
 decimalButton.addEventListener('click', e => {
+        if(!bottomText.textContent.includes('.')){
         if(bottomText.textContent == ''){
             bottomText.textContent += '0.';
             decimalButton.disabled = true;
         } else {
         bottomText.textContent += '.';
         decimalButton.disabled = true;
+        }
         }
 });
 clearButton.addEventListener('click', e => {
