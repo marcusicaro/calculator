@@ -1,24 +1,33 @@
 body{
     margin: 0px;
     padding: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#main {
+    display: flex;
+    margin-top: 50px;
+    min-height: 700px;
+    align-items: center;
+    justify-content: center;
 }
 
 #pad {
     width: 322px;
-    height: 494px;
-    position:absolute;
+    /* min-height: 494px; */
+    /* position:absolute; */
     top:0;
     right:0;
     bottom:0;
     left:0;
-    margin:auto;
+    /* margin:auto; */
     padding: 8px;
     border: 1px solid black;
     border-radius: 16px;
 }
 
 #calculator{
-    height: 256px;
+    /* height: 256px; */
     width: 360px;
     display: flex;
     flex-wrap: wrap;
@@ -44,7 +53,7 @@ button:active{
 }
 
 #display {
-    height: 74px;
+    min-height: 74px;
     margin: 8px;
     padding-right: 6px;
     padding-left: 6px;
